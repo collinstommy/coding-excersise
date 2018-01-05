@@ -144,6 +144,10 @@
         margin-right: 8px;
     }
 
+    .front, .back {
+        transform: rotateX(0deg)
+    }
+
     .icon {
         visibility: hidden;
         margin-left: 5px;
