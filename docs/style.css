@@ -1,0 +1,267 @@
+
+    html {
+        font-size: 90%;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+        margin: 0;
+    }
+
+    .banner-container{
+        width: 150px;
+        height: 121px;
+        overflow: hidden;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+    }
+
+    .banner {
+        background: #FEBD0F;
+        box-shadow: 0px 0px 7px 0px rgba(175, 175, 175, 0.14), -4px 4px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+        font-size: 1.9rem;
+        font-weight: bold;
+        padding: 10px;
+        transform: rotate(45deg) translate(11%, -15%);
+        text-align: center;
+        width: 167px;
+    }
+
+
+    .btn {
+        background: #e9e9ea;
+        border: none;
+        color: #464545;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: .8rem;
+        outline: none;
+        padding: 6px 0;
+    }
+
+    .btn:hover {
+        background: #d5d5d6;
+    }
+
+    .btn:hover .icon {
+        visibility: visible;
+    }
+
+
+    .btn.primary {
+        background: #FEBD0F;
+    }
+
+    .btn.btn.primary:hover {
+        background: #18819C;
+        color: #ffffff;
+    }
+
+    .container {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        perspective: 800px;
+    }
+
+    .card {
+        box-shadow: 0px -1px 2px 0 rgba(0, 0, 0, 0.1),0px 3px 3px 0 rgba(0, 0, 0, 0.12), 2px -2px 1px 0px #fff;
+        display: flex;
+    }
+   /* 0px -1px 2px 0 rgba(0, 0, 0, 0.1), 0px 3px 3px 0 rgba(0, 0, 0, 0.12), 2px -2px 1px 0px #eee */
+
+    .card-detail {
+        padding: 15px;
+    }
+
+    .card h1,
+    h2,
+    h3,
+    p {
+        margin: 0;
+    }
+
+    .card h1,
+    h2 {
+        text-transform: uppercase;
+        color: #18819C;
+        line-height: 95%;
+    }
+
+    .card h1 {
+        font-size: 2rem;
+    }
+
+    .card h2 {
+        font-size: 1.5rem;
+    }
+
+    .card h3 {
+        font-size: 1.1rem;
+    }
+
+    .card h4 {
+        margin-bottom: 3px;
+    }
+
+    .card p {
+        margin-bottom: 6px;
+    }
+
+    .card-headline {
+        margin-bottom: 20px;
+    }
+
+    .card-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 12px;
+    }
+
+    .card-buttons>* {
+        flex-basis: 32%;
+    }
+
+    .card-back-buttons {
+        display: flex;
+        justify-content: left;
+        margin-top: 8px;
+        padding: 10px 0;
+        width: 30%;
+    }
+
+    .card-back-buttons .primary {
+        flex: 3;
+    }
+
+    .card-back-buttons .secondary {
+        flex: 2;
+    }
+
+    .card-back-buttons>* {
+        padding: 10px 0;
+        margin-right: 8px;
+    }
+
+    .front, .back {
+        transform: rotateX(0deg)
+    }
+
+    .icon {
+        visibility: hidden;
+        margin-left: 5px;
+    }
+
+    .terms {
+        display: flex;
+        height: 36%;
+        overflow: auto;
+        font-size: .9rem;
+        line-height: 1.2rem;
+    }
+
+    .term-container {
+        display: flex;
+        flex-direction: column;
+        margin: 12px;
+    }
+
+    #flipper {
+        width: 680px;
+        height: 212px;
+        position: absolute;
+        transform-style: preserve-3d;
+        transition: transform .15s;
+
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+    }
+
+    #flipper figure {
+        margin: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+    }
+
+    #flipper .back {
+        transform: rotateY(180deg);
+    }
+
+    #flipper.flipped {
+        transform: rotateY( 180deg);
+    }
+
+    #flipper.flipped front {
+        transform: rotateY( 180deg);
+    }
+
+    #flipper.flipped .back {
+        transform: rotateY( 180deg);
+    }
+    
+    #flipper.flipped .banner {
+       transform: translateX(-300px);
+       
+    }
+
+    @media only screen and (max-width: 600px) {
+        #flipper {
+            width: 100%;
+            height: auto;
+        }
+
+        .card {
+            flex-direction: column;
+            display: flex;
+            box-shadow: none;
+        }
+
+        .card-buttons {
+            flex-wrap: wrap;
+        }
+
+        .btn.primary {
+            flex-basis: 100%;
+        }
+        
+        .btn.secondary {
+            flex-basis: 48%;
+        }
+
+        .card-image img {
+            width: 100%;
+        }
+
+        .card-headline {
+            text-align: center;
+        }
+
+        .card-buttons .btn.primary {
+            margin-top: 8px;
+        }
+
+        .terms {
+            width: 90%;
+            text-align: justify;
+        }
+
+        .card-back-buttons {
+            width: 90%;
+            flex-direction: row;
+        }
+        
+        .card-back-buttons .secondary{
+            flex: 1;
+        }
+
+        .card-back-buttons .primary{
+            flex: 1;
+        }
+    }

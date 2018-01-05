@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Betbright Casino</title>
+    <meta name="description" content="Betbright Casino">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <section class="container">
+        <div id="flipper">
+            <figure class="front card">
+                <div class="banner-container">
+                    <div class="banner">
+                        New
+                    </div>
+                </div>
+                <div class="card-image">
+                    <img src="assets/casino.png" alt="The Moment Casino" />
+                </div>
+                <div class="card-detail">
+                    <div class="card-headline">
+                        <h2>BetBright Casino</h2>
+                        <h1>£1000 Bonus</h1>
+                    </div>
+                    <div class="card-body">
+                        <h3>JOIN</h3>
+                        <p>Open an account with us, it takes just a few minutes</p>
+                        <h3>DEPOSIT</h3>
+                        <p>Place a sigle bet up to £30 on any sport in our Sportsbook</p>
+                    </div>
+                    <div class="card-buttons">
+                        <button class="btn secondary" onclick="flip()">
+                            <i class="fa fa-refresh icon" aria-hidden="true"></i> Ts&Cs
+                        </button>
+                        <button class="btn secondary">FIND OUT MORE</button>
+                        <button class="btn primary">JOIN NOW</button>
+                    </div>
+                </div>
+            </figure>
+            <figure class="back card">
+                <div class="term-container">
+                    <h1>CASINO BONUS</h1>
+                    <h4>Terms & Conditions</h4>
+                    <div class="terms">
+                        <p>Offer only available to new customers who come through related online promotional material. 18+.
+                            Place a bet up to the value of what you deposit and up to the max value of £30. Only first placed
+                            bet qualifies. Single and Multiple bets qualify. If qualifying bet loses, the amount staked up
+                            to the max £30 will be refunded. Qualifying bet must be placed within 14 days of requesting the
+                            money back special and bet must settle within 21 days of being placed. You are responsible for
+                            ensuring that the correct banking/personal information is available on your Account with us.
+                            By submitting payment details to us you warrant that you are entitled to effect the relevant
+                            transaction or place the relevant bet using such payment details. If we do not receive payment
+                            authorisation or if payment is not valid, cannot otherwise be processed or if any authorisation
+                            is subsequently cancelled or any check of your payment method fails, we may reject your transaction
+                            or bet and/or immediately terminate or suspend your Account. We reserve the right to conduct
+                            credit checks with third party credit and financial institutions.
+                        </p>
+                    </div>
+                    <div class="card-back-buttons">
+                        <button onclick="flip()" class="btn secondary">
+                                <i class="fa fa-refresh icon" aria-hidden="true"></i> BACK
+                            </button>
+                        <button class="btn primary">JOIN NOW</button>
+                    </div>
+                </div>
+            </figure>
+        </div>
+    </section>
+    <script>
+        function flip() {
+            document.querySelector("#flipper").classList.toggle("flipped");
+        }
+    </script>
+</body>
+
+</html>
