@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Animal Photos</title>
+    <meta name='description' content='Animals'>
+    <style>
+        html {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        button {
+            cursor: pointer;
+            background: #3dd28d;
+            border: none;
+            box-shadow: 2px 5px 10px #e4e4e4;
+            color: white;
+            flex: 1;
+            margin: 10px;
+            outline: none;
+            overflow: hidden;
+            padding: 12px 12px;
+        }
+
+        button:hover {
+            background: #63d29e;
+            box-shadow: 0 4px #e4e4e4;
+            transform: translateY(2px);
+            top: 2px;
+        }
+
+        #container {
+            display: flex;
+        }
+
+        #photos {
+            display: flex;
+            flex-direction: column;
+            margin: 10px;
+        }
+
+        #photos>* {
+            margin: 4px 0;
+        }
+
+        .button-group {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <div class='button-group'>
+        <button type='button' onclick="showPhotos('house cat')">Cat</button>
+        <button type='button' onclick="showPhotos('wild giraffes')">Giraffe</button>
+        <button type='button' onclick="showPhotos('dogs')">Dog</button>
+    </div>
+    <div id='container'>
+    </div>
+    <p id='errorText' class='error'>
+    </p>
+
+    <script>
+        function getBaseUrl(searchTerm) {
+            return 'https://api.flickr.com/services/rest/?api_key=8e4996b86ab69d85a8459588bee5e03a&tags=' + searchTerm + '&text=' + searchTerm + '&method=flickr.photos.search&format=json&nojsoncallback=1&safe_search=1';
+        }
+
+        function showPhotos(term) {
+
+            fetch(getBaseUrl(term), {
+                method: 'get'
+            }).then(function (response) {
+                return response.json();
+            }).then(function (data) {
+                outputToPage(data.photos.photo.slice(0, 5));
+            }).catch(function (err) {
+                showError();
+            });
+        }
+
+        function outputToPage(results) {
+            removeExistingPhotos();
+
+            const photoDiv = document.createElement('div');
+            photoDiv.setAttribute('id', 'photos');
+
+            //append the 5 photos to the correct div
+            for (let i = 0; i < results.length; i++) {
+                const photo = results[i]
+
+                const imageUrl = 'http://farm' + photo.farm + '.staticflickr.com/' + photo.server +
+                    '/' + photo.id + '_' + photo.secret + '.jpg';
+
+                const image = document.createElement('img');
+                image.src = imageUrl;
+                photoDiv.appendChild(image);
+            }
+
+            container.appendChild(photoDiv);
+            document.getElementById('container').appendChild(photoDiv);
+        }
+
+        function showError() {
+            document.getElementById('errorText').innerHTML = "Oh dear, there was an error retrieving the photos.";
+        }
+
+        function removeExistingPhotos() {
+            const child = document.getElementById("photos");
+            if (child)
+                child.parentNode.removeChild(child);
+        }
+    </script>
+</body>
+
+</html>
